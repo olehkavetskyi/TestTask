@@ -1,0 +1,28 @@
+﻿@model TestTask.ViewModels.LoginViewModel
+
+<h2>Login</h2>
+
+@if (ViewData["ReturnUrl"] != null)
+{
+        <div class="alert alert-warning">
+            You must log in to access the requested page.
+        </div>
+}
+
+<form method="post" asp-action="Login" asp-controller="Account">
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" required>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="Password" name="Password" required>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="RememberMe" name="RememberMe">
+        <label class="form-check-label" for="RememberMe">Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>

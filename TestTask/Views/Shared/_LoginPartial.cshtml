@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <form id="logoutForm" asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-link nav-link">Sign Out</button>
+        </form>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Account" asp-action="SignUp">Sign Up</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+    }
+</ul>

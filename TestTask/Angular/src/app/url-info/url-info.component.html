@@ -1,0 +1,20 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Short URL</th>
+      <th>Full URL</th>
+      <th>Created At</th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr>
+      <td>{{ url?.id }}</td>
+      <td>{{ url?.shortUrl }}</td>
+      <td>{{ url?.fullUrl }}</td>
+      <td>{{ url?.createdAt | date }}</td>
+    </tr>
+  </tbody>
+</table>
+<a [routerLink]="'/urls-table/'">Back</a>

@@ -1,0 +1,29 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Shortened URL</th>
+        <th>Info</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let url of urls">
+        <td>{{ url.id }}</td>
+        <td><a href="{{ url.fullUrl }}">{{ url.shortUrl }}</a></td>
+        <td><a [routerLink]="'/info/' + url.id">Info</a></td>
+        <td><button class="btn-danger" (click)="remove(url.id)" *ngIf="ableToRemove(url)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button *ngIf="isAdmin()" class="btn-danger" (click)="removeAll()">Delete All</button>
+
+  <div *ngIf="currentUser">
+    <h2>Add new URL</h2>
+    <input type="text" [(ngModel)]="fullUrl" placeholder="Enter the full URL">
+    <button (click)="addUrl()">Shorten URL</button>
+  </div>
+</div>
+
+
